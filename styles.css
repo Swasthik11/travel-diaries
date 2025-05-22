@@ -19,10 +19,11 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
   padding: 20px;
   width: 100%;
+  padding-top: 40px;
 }
 
 .container {
@@ -80,6 +81,7 @@ body {
 @media (max-width: 767px) {
   body {
     padding: 15px;
+    padding-top: 20px;
   }
   
   .container {
@@ -102,6 +104,7 @@ body {
 @media (max-width: 480px) {
   body {
     padding: 10px;
+    padding-top: 15px;
   }
   
   .container {
@@ -136,6 +139,7 @@ body {
 @media (max-width: 360px) {
   body {
     padding: 5px;
+    padding-top: 10px;
   }
   
   .card img {
