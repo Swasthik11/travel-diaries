@@ -58,14 +58,16 @@ body {
 }
 
 
-@media (min-width: 456px) {
+@media (max-width: 767px) {
     .container {
-        justify-content: center; 
-        flex-wrap: wrap; 
+        justify-content: center; /* Center cards on mobile */
+        flex-wrap: wrap; /* Ensure wrapping on mobile */
+        padding: 0 10px; /* Further reduce padding for smaller screens */
     }
     .card {
-        width: 50%;
-        max-width: 350px; 
+        width: 100%; /* Full width for mobile */
+        max-width: 100%; /* Ensure card doesn't exceed container */
+        margin: 0 auto; /* Center the card within the container */
     }
 }
 
