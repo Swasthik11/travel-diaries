@@ -7,6 +7,7 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 body {
@@ -21,17 +22,17 @@ body {
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
+  width: 100%;
 }
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
-  max-width: 100%;
-  margin: 0 auto 30px auto;
-  padding: 0 20px;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto 30px auto;
 }
 
 .card {
@@ -40,31 +41,32 @@ body {
   border-radius: 20px;
   overflow: hidden;
   width: 350px;
+  max-width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
 }
 
-/* Desktop styles */
+/* Desktop styles - 3 cards in a row */
 @media (min-width: 1200px) {
   .container {
-    max-width: 1400px;
     flex-wrap: nowrap;
-    padding: 0;
+    justify-content: space-between;
   }
   
   .card {
     flex: 1;
     min-width: 300px;
-    max-width: calc((1400px - 40px) / 3);
-    width: auto;
+    max-width: 400px;
+    width: calc(33.333% - 14px);
   }
 }
 
-/* Tablet styles */
-@media (max-width: 1199px) and (min-width: 768px) {
+/* Large tablet - 2 cards in a row */
+@media (min-width: 768px) and (max-width: 1199px) {
   .container {
     justify-content: center;
-    padding: 0 10px;
+    max-width: 800px;
   }
   
   .card {
@@ -74,40 +76,39 @@ body {
   }
 }
 
-/* Mobile styles */
+/* Mobile styles - 1 card per row */
 @media (max-width: 767px) {
   body {
-    padding: 10px;
+    padding: 15px;
   }
   
   .container {
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    width: 100%;
     padding: 0;
   }
   
   .card {
     width: 100%;
-    max-width: calc(100vw - 20px);
+    max-width: 100%;
     min-width: auto;
+    flex-shrink: 1;
   }
 }
 
-/* Extra small mobile devices */
+/* Small mobile devices */
 @media (max-width: 480px) {
   body {
-    padding: 5px;
+    padding: 10px;
   }
   
   .container {
-    gap: 10px;
+    gap: 15px;
   }
   
   .card {
-    width: 100%;
-    max-width: calc(100vw - 10px);
     border-radius: 15px;
   }
   
@@ -117,18 +118,67 @@ body {
   
   .overlay {
     height: 200px;
+    padding: 10px;
+  }
+  
+  .card h2 {
+    font-size: 16px;
+    padding: 0 10px 10px;
+  }
+  
+  .location {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  body {
+    padding: 5px;
+  }
+  
+  .card img {
+    height: 180px;
+  }
+  
+  .overlay {
+    height: 180px;
+    padding: 8px;
+  }
+  
+  .overlay p {
+    font-size: 12px;
+  }
+  
+  .book-btn {
+    padding: 6px 15px;
+    font-size: 12px;
   }
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+  .card:hover {
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card:hover .overlay {
+    opacity: 0;
+  }
 }
 
 .card img {
   width: 100%;
   height: 250px;
   object-fit: cover;
+  display: block;
 }
 
 .overlay {
@@ -154,6 +204,7 @@ body {
 .overlay p {
   font-size: 14px;
   line-height: 1.4;
+  margin: 0;
 }
 
 .book-btn {
@@ -166,6 +217,7 @@ body {
   font-weight: bold;
   align-self: center;
   transition: background-color 0.3s ease;
+  white-space: nowrap;
 }
 
 .book-btn:hover {
@@ -183,6 +235,7 @@ body {
 .location .icon {
   margin-right: 5px;
   font-size: 16px;
+  flex-shrink: 0;
 }
 
 .card h2 {
@@ -190,6 +243,8 @@ body {
   font-size: 18px;
   color: #333;
   font-weight: bold;
+  line-height: 1.3;
+  word-wrap: break-word;
 }
 
 .footer-text {
@@ -197,6 +252,7 @@ body {
   font-size: 16px;
   color: #333;
   margin-top: 20px;
+  padding: 0 15px;
 }
 
 .footer-text a {
