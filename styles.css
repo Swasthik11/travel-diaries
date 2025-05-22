@@ -58,7 +58,7 @@ body {
 }
 
 
-@media (max-width: 456px) {
+@media (min-width: 456px) {
     .container {
         justify-content: center; 
         flex-wrap: wrap; 
