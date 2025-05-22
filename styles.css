@@ -65,7 +65,7 @@ body {
         padding: 0 10px; /* Further reduce padding for smaller screens */
     }
     .card {
-        width: 100%; /* Full width for mobile */
+        width: 10%; /* Full width for mobile */
         max-width: 100%; /* Ensure card doesn't exceed container */
         margin: 0 auto; /* Center the card within the container */
     }
