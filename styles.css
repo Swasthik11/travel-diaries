@@ -4,9 +4,14 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+
+html, body {
+    height: 100%;
+}
+
 body {
     background-image: url('travel1.jpg');
-    background-size: cover; /* Ensures full coverage while maintaining aspect ratio */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #f9f9f9;
@@ -17,7 +22,6 @@ body {
     min-height: 100vh;
     padding: 20px;
 }
-
 
 .container {
     display: flex;
@@ -157,9 +161,14 @@ body {
 .footer-text a:hover {
     text-decoration: underline;
 }
+
 @media (max-width: 768px) {
     body {
-        background-size: contain; /* Adjusts for smaller screens */
-        background-position: top;
+        padding: 10px;
+       
+    }
+
+    .card {
+        width: 90%;
     }
 }
