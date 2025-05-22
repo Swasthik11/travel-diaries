@@ -26,12 +26,12 @@ body {
 
 .container {
     display: flex;
-    justify-content: center;
-    gap: 12px;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    max-width: 1100px;
-    width: 100%;
+    width: 100%; /* Full width */
+    max-width: 100%;
     margin-bottom: 30px;
+    padding: 0 20px;
 }
 
 .card {
@@ -39,7 +39,10 @@ body {
     background-color: white;
     border-radius: 16px;
     overflow: hidden;
-    width: 150px; /* Shrink for desktop */
+    width: 18%; /* ~5 cards per row on desktop */
+    min-width: 160px;
+    max-width: 200px;
+    margin-bottom: 20px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
@@ -153,11 +156,11 @@ body {
 .footer-text {
     text-align: center;
     font-size: 14px;
-    color: #000; /* Black text */
+    color: #000;
 }
 
 .footer-text a {
-    color: #003366; /* Dark blue links */
+    color: #003366;
     text-decoration: none;
 }
 
@@ -165,23 +168,17 @@ body {
     text-decoration: underline;
 }
 
-/* Mobile view unchanged */
+/* Mobile view preserved */
 @media (max-width: 768px) {
-    body {
-        padding: 10px;
-        overflow-x: hidden;
-    }
-
     .container {
-        width: 100%;
         flex-direction: column;
         align-items: center;
+        padding: 0 10px;
         gap: 12px;
     }
 
     .card {
         width: 85%;
-        height: auto;
     }
 
     .card img, .overlay {
